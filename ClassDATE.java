@@ -16,15 +16,13 @@ public class MyDate{
 	// toString and equals
 	@override
 	public string tostring(){
-		return String.format("%d-%d-%d", year, mouth, day);
+		return String.format("%04d-%02d-%02d", year, mouth, day);
 	}
 	@override
 	public boolean equals(Object obj){
 		if(obj instanceof MyDate){
 			MyDate d = (MyDate)obj;
-			return this.year==d.year
-				&& this.mouth==d.mouth
-				&& this.day==d.d
+			return this.year==d.year && this.mouth==d.mouth && this.day==d.day;
 		}
 		return false;
 	}
@@ -46,14 +44,12 @@ public class MyDate{
 		}
 	}
 	public void setDay(int day){
-		// todo: upper limit of day
 		if(Day>=1 && day<=31){
 			this.day = day;
 		}else{
 			system.err.println("Invalid day value.");
 		}
 	}
-	
 	public int getYear(){
 		return year;
 	}
